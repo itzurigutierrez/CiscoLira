@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     }
 
     const selectQuery =
-      "SELECT id_usuario, correo, nombre, apellido, rol FROM usuarios WHERE correo = ?";
+      "SELECT id_usuario, correo, contrasena FROM usuarios WHERE correo = ?";
     const response: any = await query(selectQuery, [correo]);
 
     if (response.length === 0) {
@@ -24,9 +24,11 @@ export async function POST(request: Request) {
 
     const usuario = response[0];
 
-    // Solo guarda/retorna los datos del usuario (sin bcrypt, token ni cookies)
+    // Solo retorna los datos del usuario (sin contraseña)
+    const { contrasena, ...usuarioSinContrasena } = usuario;
+
     return NextResponse.json(
-      { mensaje: "Bienvenido", usuario },
+      { mensaje: "Bienvenido", usuario: usuarioSinContrasena },
       { status: 200 }
     );
   } catch (error) {
