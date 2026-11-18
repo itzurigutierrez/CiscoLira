@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Iniciar sesión",
+  title: "Iniciar sesión | Networking Academy con Cisco",
   description: "Pantalla de inicio de sesión - portafolio",
 };
 
