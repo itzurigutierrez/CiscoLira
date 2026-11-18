@@ -1,112 +1,105 @@
 .leftPanel {
   position: relative;
-  flex: 1 1 50%;
+  flex: 0 0 58%;
   min-height: 100vh;
-  background: radial-gradient(
-      circle at 15% 85%,
-      rgba(236, 30, 121, 0.35),
-      transparent 45%
-    ),
-    radial-gradient(circle at 10% 10%, rgba(59, 111, 224, 0.25), transparent 40%),
-    linear-gradient(160deg, var(--panel-dark) 0%, var(--panel-dark-2) 55%, #1a1030 100%);
+  background:
+    radial-gradient(ellipse 60% 30% at 15% 108%, rgba(0, 120, 220, 0.45), transparent 70%),
+    radial-gradient(ellipse 45% 30% at 62% 110%, rgba(170, 40, 120, 0.45), transparent 70%),
+    radial-gradient(ellipse 35% 28% at 100% 108%, rgba(255, 120, 30, 0.35), transparent 70%),
+    var(--panel-dark);
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 64px 72px;
+  padding: 64px 48px 64px 0;
 }
 
-.shapes {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
+.shapes { position: absolute; inset: 0; pointer-events: none; }
 
 .wave {
   position: absolute;
-  top: 0;
-  left: 28px;
-  width: 260px;
-  height: 90%;
-  opacity: 0.95;
+  left: 0;
+  top: 47%;
+  transform: translateY(-50%);
+  height: 66vh;
+  aspect-ratio: 320 / 600;
+  overflow: hidden;
 }
 
 .pinkBlob {
   position: absolute;
-  top: 14%;
-  left: 13%;
-  width: 46px;
-  height: 46px;
+  top: 12.5%;
+  left: 23.5%;
+  width: 57px;
+  height: 52px;
   background: var(--pink);
-  border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%;
+  border-radius: 26px 4px 4px 26px;
 }
 
 .blueDot {
   position: absolute;
-  top: 19%;
-  left: 7%;
-  width: 20px;
-  height: 20px;
+  top: 17.5%;
+  left: 18.5%;
+  width: 34px;
+  height: 34px;
   background: var(--blue-dot);
   border-radius: 50%;
 }
 
 .cyanSquare {
   position: absolute;
-  bottom: 16%;
-  left: 4%;
-  width: 34px;
-  height: 34px;
+  bottom: 20%;
+  left: 11.5%;
+  width: 32px;
+  height: 28px;
   background: var(--cyan);
-  border-radius: 6px;
-  transform: rotate(18deg);
+  border-radius: 10px 4px 4px 4px;
 }
 
 .orangeBurst {
   position: absolute;
-  bottom: 4%;
-  left: -2%;
-  width: 80px;
-  height: 80px;
+  bottom: 12%;
+  left: 2.5%;
+  width: 72px;
+  height: 72px;
   background: var(--orange);
   clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
+    100% 50%, 92.5% 61.4%, 93.3% 75%, 81.1% 81.1%, 75% 93.3%, 61.4% 92.5%,
+    50% 100%, 38.6% 92.5%, 25% 93.3%, 18.9% 81.1%, 6.7% 75%, 7.5% 61.4%,
+    0% 50%, 7.5% 38.6%, 6.7% 25%, 18.9% 18.9%, 25% 6.7%, 38.6% 7.5%,
+    50% 0%, 61.4% 7.5%, 75% 6.7%, 81.1% 18.9%, 93.3% 25%, 92.5% 38.6%
   );
 }
 
 .leftContent {
   position: relative;
   z-index: 1;
-  max-width: 440px;
+  margin-left: 31%;
+  max-width: 700px;
   color: #fff;
 }
 
-.leftContent h1 {
-  font-size: 40px;
-  line-height: 1.15;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  margin-bottom: 24px;
+.brand {
+  font-size: 13px;
+  line-height: 1.25;
+  margin-bottom: 28px;
 }
 
-.leftContent p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 400px;
+.leftContent h1 {
+  font-size: clamp(30px, 2.4vw, 46px);
+  line-height: 1.3;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #fff;
 }
 
 @media (max-width: 900px) {
-  .leftPanel {
-    min-height: auto;
-    padding: 48px 32px;
-  }
+  .leftPanel { flex: none; min-height: auto; padding: 48px 32px; }
+  .leftContent { margin-left: 0; }
+  .wave { display: none; }
 }

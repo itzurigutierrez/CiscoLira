@@ -72,6 +72,7 @@ export default function Home() {
             type="button"
             onClick={() => router.back()}
           >
+            <span className={styles.backIcon}>←</span> Volver
           </button>
           <button className={styles.langPill} type="button">
             🌐 Español
@@ -160,11 +161,7 @@ export default function Home() {
                 className={styles.primaryButton}
                 disabled={submitting}
               >
-                {step === "email"
-                  ? "Continuar"
-                  : submitting
-                  ? "Iniciando sesión..."
-                  : "Iniciar sesión"}
+                {submitting ? "Iniciando sesión..." : "Iniciar sesión"}
               </button>
             </form>
           )}
