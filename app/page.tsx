@@ -85,11 +85,7 @@ export default function Home() {
             onClick={() => router.back()}
             aria-label="Regresar"
           >
-<<<<<<< HEAD
-            <span className={styles.backIcon}>←</span> Volver
-=======
             ←
->>>>>>> c2c6060db41b07f9658213d701fd08764b962f3b
           </button>
           <button className={styles.langPill} type="button">
             🌐 Español
