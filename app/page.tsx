@@ -37,7 +37,7 @@ export default function Home() {
     setStep("password");
   }
 
-  function handleLogin(e: FormEvent) {
+  async function handleLogin(e: FormEvent) {
     e.preventDefault();
 
     if (!password) {
@@ -47,18 +47,30 @@ export default function Home() {
 
     setError("");
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ correo: email, contrasena: password }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data?.mensaje || "Error al iniciar sesión.");
+        return;
+      }
       setLoggedIn(true);
-    }, 900);
+      if (data?.redirectTo) {
+        router.push(data.redirectTo);
+      }
+    } catch {
+      setError("Error al iniciar sesión.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
-  function handleEditEmail() {
-    setStep("email");
-    setPassword("");
-    setShowPassword(false);
-    setError("");
-    setLoggedIn(false);
+  const handleReturnButton = async()=>{
+    
   }
 
   return (
@@ -71,8 +83,13 @@ export default function Home() {
             className={styles.backLink}
             type="button"
             onClick={() => router.back()}
+            aria-label="Regresar"
           >
+<<<<<<< HEAD
             <span className={styles.backIcon}>←</span> Volver
+=======
+            ←
+>>>>>>> c2c6060db41b07f9658213d701fd08764b962f3b
           </button>
           <button className={styles.langPill} type="button">
             🌐 Español
@@ -102,19 +119,10 @@ export default function Home() {
                   className={styles.textInput}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  disabled={step === "password"}
                   autoComplete="email"
                   autoFocus={step === "email"}
                 />
-                {step === "password" && (
-                  <button
-                    type="button"
-                    className={styles.editLink}
-                    onClick={handleEditEmail}
-                  >
-                    Editar correo
-                  </button>
-                )}
+
               </div>
 
               {step === "password" && (
