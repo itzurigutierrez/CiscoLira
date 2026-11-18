@@ -1,0 +1,130 @@
+export const COUNTRIES = [
+  "México",
+  "Estados Unidos",
+  "Argentina",
+  "Colombia",
+  "España",
+  "Otro país",
+];
+
+const MEXICO_STATES = [
+  "Aguascalientes",
+  "Baja California",
+  "Baja California Sur",
+  "Campeche",
+  "Chiapas",
+  "Chihuahua",
+  "Ciudad de México",
+  "Coahuila",
+  "Colima",
+  "Durango",
+  "Estado de México",
+  "Guanajuato",
+  "Guerrero",
+  "Hidalgo",
+  "Jalisco",
+  "Michoacán",
+  "Morelos",
+  "Nayarit",
+  "Nuevo León",
+  "Oaxaca",
+  "Puebla",
+  "Querétaro",
+  "Quintana Roo",
+  "San Luis Potosí",
+  "Sinaloa",
+  "Sonora",
+  "Tabasco",
+  "Tamaulipas",
+  "Tlaxcala",
+  "Veracruz",
+  "Yucatán",
+  "Zacatecas",
+];
+
+const US_STATES = [
+  "Alabama",
+  "Alaska",
+  "Arizona",
+  "Arkansas",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "Florida",
+  "Georgia",
+  "Hawái",
+  "Idaho",
+  "Illinois",
+  "Indiana",
+  "Iowa",
+  "Kansas",
+  "Kentucky",
+  "Luisiana",
+  "Maine",
+  "Maryland",
+  "Massachusetts",
+  "Michigan",
+  "Minnesota",
+  "Misisipi",
+  "Misuri",
+  "Montana",
+  "Nebraska",
+  "Nevada",
+  "Nueva Jersey",
+  "Nuevo México",
+  "Nueva York",
+  "Carolina del Norte",
+  "Dakota del Norte",
+  "Ohio",
+  "Oklahoma",
+  "Oregón",
+  "Pensilvania",
+  "Rhode Island",
+  "Carolina del Sur",
+  "Dakota del Sur",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Vermont",
+  "Virginia",
+  "Washington",
+  "Virginia Occidental",
+  "Wisconsin",
+  "Wyoming",
+];
+
+export const STATES_BY_COUNTRY: Record<string, string[]> = {
+  México: MEXICO_STATES,
+  "Estados Unidos": US_STATES,
+};
+
+export const MONTHS = [
+  "Enero",
+  "Febrero",
+  "Marzo",
+  "Abril",
+  "Mayo",
+  "Junio",
+  "Julio",
+  "Agosto",
+  "Septiembre",
+  "Octubre",
+  "Noviembre",
+  "Diciembre",
+];
+
+export const GENDERS = [
+  "Femenino",
+  "Masculino",
+  "Prefiero no decirlo",
+  "Otro",
+];
+
+export function getYearRange(currentYear: number, minAge = 10, maxAge = 100) {
+  const years: number[] = [];
+  for (let y = currentYear - minAge; y >= currentYear - maxAge; y--) {
+    years.push(y);
+  }
+  return years;
+}

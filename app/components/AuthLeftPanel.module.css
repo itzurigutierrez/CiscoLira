@@ -1,0 +1,112 @@
+.leftPanel {
+  position: relative;
+  flex: 1 1 50%;
+  min-height: 100vh;
+  background: radial-gradient(
+      circle at 15% 85%,
+      rgba(236, 30, 121, 0.35),
+      transparent 45%
+    ),
+    radial-gradient(circle at 10% 10%, rgba(59, 111, 224, 0.25), transparent 40%),
+    linear-gradient(160deg, var(--panel-dark) 0%, var(--panel-dark-2) 55%, #1a1030 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 64px 72px;
+}
+
+.shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 28px;
+  width: 260px;
+  height: 90%;
+  opacity: 0.95;
+}
+
+.pinkBlob {
+  position: absolute;
+  top: 14%;
+  left: 13%;
+  width: 46px;
+  height: 46px;
+  background: var(--pink);
+  border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%;
+}
+
+.blueDot {
+  position: absolute;
+  top: 19%;
+  left: 7%;
+  width: 20px;
+  height: 20px;
+  background: var(--blue-dot);
+  border-radius: 50%;
+}
+
+.cyanSquare {
+  position: absolute;
+  bottom: 16%;
+  left: 4%;
+  width: 34px;
+  height: 34px;
+  background: var(--cyan);
+  border-radius: 6px;
+  transform: rotate(18deg);
+}
+
+.orangeBurst {
+  position: absolute;
+  bottom: 4%;
+  left: -2%;
+  width: 80px;
+  height: 80px;
+  background: var(--orange);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.leftContent {
+  position: relative;
+  z-index: 1;
+  max-width: 440px;
+  color: #fff;
+}
+
+.leftContent h1 {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+}
+
+.leftContent p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 400px;
+}
+
+@media (max-width: 900px) {
+  .leftPanel {
+    min-height: auto;
+    padding: 48px 32px;
+  }
+}
